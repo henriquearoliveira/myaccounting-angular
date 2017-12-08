@@ -1,0 +1,51 @@
+<div class="login-page" [@routerTransition]>
+        <div class="row justify-content-md-center">
+            <div class="col-md-4">
+                <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+                <h1>SB Admin BS4 Angular4</h1>
+                <span *ngIf="errorMessage" class="form-control alert-danger" style="margin-bottom: 10px">
+                    {{errorMessage}}
+                  </span>
+    
+                <form [formGroup]="meuFormLogin" class="form" (submit)="cadastrar($event)">
+                    <div class="form-content">
+    
+                        <div class="form-group" [ngClass]="displayFieldCss('email')">
+    
+                            <input type="email"
+                                class="form-control input-underline input-lg"
+                                id="" placeholder="Email" formControlName="email"
+                                [(ngModel)]="usuario.email" name="email">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            
+                            <span *ngIf="isFieldValid('email')" class="form-control alert-danger">
+                                Email incorreto
+                            </span>
+    
+                        </div>
+    
+                        <div class="form-group" [ngClass]="displayFieldCss('senha')">
+    
+                            <input type="password" class="form-control input-underline input-lg"
+                                id="" placeholder="Password"
+                                formControlName="senha"
+                                [(ngModel)]="usuario.senha" name="senha">
+    
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            <span *ngIf="isFieldValid('senha')" class="form-control alert-danger">
+                              Senha obrigatória
+                            </span>
+    
+                        </div>
+    
+                    </div>
+                    <button type="submit" class="btn rounded-btn" (click)="cadastrar($event)">
+                    Entrar
+                    </button>
+                    <!-- <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a> -->
+                    &nbsp;
+                    <!-- <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a> -->
+                </form>
+            </div>
+        </div>
+    </div>
