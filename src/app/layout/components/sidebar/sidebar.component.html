@@ -1,8 +1,30 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
     <ul class="list-group">
-        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
-        </a>
+
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('categoria')">
+                <span>
+                    <i class="fa fa-plus"></i>&nbsp; {{ 'Category' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'categoria'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/categoria/novo']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'New' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/categoria']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Recorded' | translate }}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <!-- <a routerLink="/" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Categoria' | translate }}
+        </a> -->
         <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Charts' | translate }}
         </a>
@@ -23,18 +45,25 @@
         </a>
         <div class="nested-menu">
             <a class="list-group-item" (click)="addExpandClass('pages')">
-                <span><i class="fa fa-plus"></i>&nbsp; {{ 'Menu' | translate }}</span>
+                <span>
+                    <i class="fa fa-plus"></i>&nbsp; {{ 'Menu' | translate }}</span>
             </a>
             <li class="nested" [class.expand]="showMenu === 'pages'">
                 <ul class="submenu">
                     <li>
-                        <a href="javascript:void(0)"><span>{{ 'Submenu' | translate }}</span></a>
+                        <a href="javascript:void(0)">
+                            <span>{{ 'Submenu' | translate }}</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><span>{{ 'Submenu' | translate }}</span></a>
+                        <a href="javascript:void(0)">
+                            <span>{{ 'Submenu' | translate }}</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><span>{{ 'Submenu' | translate }}</span></a>
+                        <a href="javascript:void(0)">
+                            <span>{{ 'Submenu' | translate }}</span>
+                        </a>
                     </li>
                 </ul>
             </li>
@@ -42,7 +71,7 @@
         <a [routerLink]="['/blank-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'Blank Page' | translate }}
         </a>
-        <a class="list-group-item more-themes" href="http://www.strapui.com/" >
+        <a class="list-group-item more-themes" href="http://www.strapui.com/">
             {{ 'More Theme' | translate }}
         </a>
     </ul>

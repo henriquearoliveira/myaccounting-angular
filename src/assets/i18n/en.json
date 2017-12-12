@@ -13,6 +13,7 @@
     "Download Now": "Download Now",
     "Language": "Language",
     "English": "English",
+    "Portuguese": "Português",
     "French": "French",
     "Urdu": "Urdu",
     "Spanish": "Spanish",
@@ -27,5 +28,9 @@
     "Pending Task" : "Pending Task",
     "In queue" : "In queue",
     "Mail" : "Mail",
-    "View All" : "View All"
+    "View All" : "View All",
+
+    "Category" : "Category",
+    "New" : "New",
+    "Recorded" : "Recorded"
 }
