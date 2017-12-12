@@ -7,17 +7,25 @@
                     <i class="fa fa-plus"></i>&nbsp; {{ 'Category' | translate }}</span>
             </a>
             <li class="nested" [class.expand]="showMenu === 'categoria'">
+
                 <ul class="submenu">
+
                     <li>
-                        <a [routerLink]="['/categoria/novo']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'New' | translate }}
+                        <a [routerLink]="['/categoria/novo']" [routerLinkActive]="['router-link-active']"
+                            class="list-group-item" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-edit"></i>&nbsp;
+                            <span>{{ 'New' | translate }}</span>
                         </a>
                     </li>
+
                     <li>
-                        <a [routerLink]="['/categoria']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Recorded' | translate }}
+                        <a [routerLink]="['/categoria/']" [routerLinkActive]="['router-link-active']"
+                            class="list-group-item" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-edit"></i>&nbsp;
+                            <span>{{ 'Recorded' | translate }}</span>
                         </a>
                     </li>
+
                 </ul>
             </li>
         </div>

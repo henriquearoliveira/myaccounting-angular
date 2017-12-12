@@ -5,7 +5,7 @@ import { CategoriaListaComponent } from './categoriaLista.component';
 
 const routes: Routes = [
     { path: 'novo', component: CategoriaComponent },
-    { path: '', component : CategoriaListaComponent }
+    { path: '/ ', component : CategoriaListaComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLinkActive } from '@angular/router/src/directives/router_link_active';
 
 @Component({
     selector: 'app-sidebar',
