@@ -1,1 +1,54 @@
-sdf
+<div [@routerTransition]>
+    <app-page-header [heading]="'Categoria'" [icon]="'fa-wrench'"></app-page-header>
+
+    <form role="form" [formGroup]="formCategoria">
+
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="form-group has-error" [ngClass]="displayFieldCss('descricao')">
+                    <label>Descrição</label>
+                    <input class="form-control is"
+                        formControlName="descricao" name="observacao"
+                        [(ngModel)]="categoria.descricao"
+                        [ngClass]="displayFieldCss('descricao')">
+
+                    <span *ngIf="isFieldValid('descricao')"
+                        class="form-control alert-danger">
+                        Descrição Incorreta
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group" [ngClass]="displayFieldCss('tipoDeCategoria')">
+                    <label>Selecione:</label>
+                    <select class="form-control" formControlName="tipoDeCategoria"
+                        [ngClass]="displayFieldCss('tipoDeCategoria')"
+                        [(ngModel)]="categoria.tipoDeCategoria"> <!--[ngModelOptions]="{standalone: true}"-->
+                        <option *ngFor="let tdc of tipoDeCategorias"
+                            [ngValue]="tdc">{{tdc}}</option>
+                    </select>
+                    <span *ngIf="isFieldValid('tipoDeCategoria')"
+                    class="form-control alert-danger">
+                        Tipo de categoria não selecionado
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <fieldset class="form-group">
+                    <label>Observação</label>
+                    <input class="form-control"
+                        formControlName="observacao" name="observacao"
+                        [(ngModel)]="categoria.observacao">
+                </fieldset>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="cadastrar($event)">Gravar</button>
+        
+    </form>
+
+</div>

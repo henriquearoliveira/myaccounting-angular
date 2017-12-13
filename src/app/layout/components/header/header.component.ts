@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'pt']);
         this.translate.setDefaultLang('en');
         const browserLang = this.translate.getBrowserLang();
-        console.log(browserLang.match(/pt/));
         this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de|pt/) ? browserLang : 'en');
 
         this.router.events.subscribe(val => {
