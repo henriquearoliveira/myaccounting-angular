@@ -18,20 +18,20 @@ export class ServicesAbstract {
         this.http = http;
         this.headers = new Headers;
         this.headers.append('Content-Type', 'application/json');
-        
+
         // URLSearchParams PARAMETROS
         // Headers HEADER
         // RequestOptions CONCATENA O HEADER E OS PARAMETROS
         // AUTENTICAÇÃ ??? TODO
-        
+
     }
-    
-    cadastra(any, uri: string, parametros: URLSearchParams): Observable<Response> {
+
+    cadastra(any, uri?: string, parametros?: URLSearchParams): Observable<Response> {
 
         if (!this.headers.get('Authorization'))
             this.headers.append('Authorization', 'Bearer ' + this.authenticationService.token);
 
-        
+
         if (parametros) {
 
             return this.http
@@ -53,17 +53,17 @@ export class ServicesAbstract {
             this.headers.append('Authorization', 'Bearer ' + this.authenticationService.token);
 
         console.log('authentication: ' + this.authenticationService.token);
-        
+
         if (parametros) {
 
             return this.http
-                .get(this.url + uri, { headers:this.headers, params: parametros })
+                .get(this.url + uri, { headers: this.headers, params: parametros })
                 .map(res => res.json());
 
         } else {
 
             return this.http
-                .get(this.url + uri, {headers: this.headers})
+                .get(this.url + uri, { headers: this.headers })
                 .map(res => res.json());
 
         }
@@ -84,7 +84,7 @@ export class ServicesAbstract {
         } else {
 
             return this.http
-                .get(this.url + uri, {headers: this.headers})
+                .get(this.url + uri, { headers: this.headers })
                 .map(res => res.json());
 
         }

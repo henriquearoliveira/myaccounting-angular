@@ -11,8 +11,7 @@ export class FormControlValidatin {
     }
 
     isFieldValid(field: string) {
-        return !this.form.get(field).valid
-            && this.form.get(field).touched;
+        return !this.form.get(field).valid && this.form.get(field).touched;
     }
 
     displayFieldCss(field: string) {
@@ -28,7 +27,6 @@ export class FormControlValidatin {
         Object.keys(formGroup.controls).forEach(field => {
             const control = formGroup.get(field);
             if (control instanceof FormControl) {
-                console.log('passei');
                 control.markAsTouched({ onlySelf: true });
             } else if (control instanceof FormGroup) {
                 this.validateAllFormFields(control);

@@ -3,6 +3,22 @@
 
     <form role="form" [formGroup]="formCategoria">
 
+        <!-- <ngb-alert *ngIf="!mensagemSuccess" type="success" (close)="closed=true">{{mensagemSuccess}}</ngb-alert>
+
+        <ngb-alert *ngIf="mensagemError != null" type="danger" (close)="closed=true">{{mensagemError}}</ngb-alert> -->
+        
+        <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>        
+
+        <ngb-alert *ngIf="errorMessage" type="danger" (close)="errorMessage = null">{{ errorMessage }}</ngb-alert>        
+        
+        <!-- <span *ngIf="mensagemSuccess != null" class="form-control alert-success">
+            {{mensagemSuccess}}
+        </span>
+
+        <span *ngIf="mensagemError" class="form-control alert-success">
+            {{mensagemError}}
+        </span> -->
+
         <div class="row">
             <div class="col-md-4">
 
@@ -13,8 +29,7 @@
                         [(ngModel)]="categoria.descricao"
                         [ngClass]="displayFieldCss('descricao')">
 
-                    <span *ngIf="isFieldValid('descricao')"
-                        class="form-control alert-danger">
+                    <span *ngIf="isFieldValid('descricao')" class="form-control alert-danger">
                         Descrição Incorreta
                     </span>
                 </div>
@@ -26,12 +41,12 @@
                     <label>Selecione:</label>
                     <select class="form-control" formControlName="tipoDeCategoria"
                         [ngClass]="displayFieldCss('tipoDeCategoria')"
-                        [(ngModel)]="categoria.tipoDeCategoria"> <!--[ngModelOptions]="{standalone: true}"-->
+                        [(ngModel)]="categoria.tipoDeCategoria">
+                        <!--[ngModelOptions]="{standalone: true}"-->
                         <option *ngFor="let tdc of tipoDeCategorias"
                             [ngValue]="tdc">{{tdc}}</option>
                     </select>
-                    <span *ngIf="isFieldValid('tipoDeCategoria')"
-                    class="form-control alert-danger">
+                    <span *ngIf="isFieldValid('tipoDeCategoria')" class="form-control alert-danger">
                         Tipo de categoria não selecionado
                     </span>
                 </div>
@@ -40,15 +55,13 @@
             <div class="col-md-4">
                 <fieldset class="form-group">
                     <label>Observação</label>
-                    <input class="form-control"
-                        formControlName="observacao" name="observacao"
-                        [(ngModel)]="categoria.observacao">
+                    <input class="form-control" formControlName="observacao" name="observacao" [(ngModel)]="categoria.observacao">
                 </fieldset>
             </div>
         </div>
 
         <button type="button" class="btn btn-primary" (click)="cadastrar($event)">Gravar</button>
-        
+
     </form>
 
 </div>

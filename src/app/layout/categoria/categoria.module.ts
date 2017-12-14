@@ -11,9 +11,17 @@ import { ServicesAbstract } from "../../servicesAbstract/servicesAbstract.servic
 
 import { FormControlValidatin } from '../../business/comum/form-control-validatin'
 
+import { CategoriaServices } from '../../business/categoria/services/categoria.service'
+
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 @NgModule({
-    imports: [CommonModule, CategoriaRoutingModule, PageHeaderModule, FormsModule, ReactiveFormsModule],
+    imports: [CommonModule, CategoriaRoutingModule,
+        PageHeaderModule, FormsModule, ReactiveFormsModule,
+    NgbModule.forRoot()], // TEM QUE IMPORTAR ESSA POHA KKKKKKKKKKKKKKKKK
     declarations: [CategoriaComponent, CategoriaListaComponent],
-    providers: [ServicesAbstract, FormControlValidatin]
+    providers: [ServicesAbstract, FormControlValidatin, CategoriaServices]
 })
 export class CategoriaModule{ }
