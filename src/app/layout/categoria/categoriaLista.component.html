@@ -1,1 +1,73 @@
-lista
+<div [@routerTransition]>
+    <app-page-header [heading]="'Listagem'" [icon]="'fa-wrench'"></app-page-header>
+
+
+    <form role="form" >
+        <div class="row">
+
+            <div class="col-sm-3">
+                    
+                    <div class="form-group">
+                            <span class="input-group-btn">
+                                <a routerLink="/categoria/novo" class="btn btn-primary">Nova Categoria</a>
+                            </span>
+                    </div>
+
+            </div>
+
+            <div class="col">
+
+                    <div class="form-group">
+                        <input class="form-control is" placeholder="Pesquisa:">
+                    </div>
+
+            </div>
+        </div>
+    </form>
+
+    <!-- <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="col-xs-6 text-right">
+                            Pesquisa: 
+                            <input class="pull-right"/>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="card mb-3">
+        <div class="card-header">Categorias</div>
+        <div class="card-body table-responsive">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th class="text-center">Tipo</th>
+                        <th class="text-center">Observação</th>
+                        <th class="text-center">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of categorias">
+                        <td>{{c.descricao}}</td>
+                        <td>{{c.tipoDeCategoria}}</td>
+                        <td>{{c.observacao}}</td>
+                        <td><a href="#">
+                                <i class="fa fa-pencil-square-o"
+                                    aria-hidden="true"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-trash"
+                                    aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -66,17 +66,17 @@ export class CategoriaComponent extends FormControlValidatin {
 
             if (cat.status == 201) {
                 
-                this.successMessage = 'Categoria salva com sucesso'
+                this.successMessage = this.services.servicesAbstract
+                    .trataSuccessMessage(cat.status)
                 
                 this.formCategoria.reset()
             }
 
         }, error => {
 
-            if (error.status == 400) {
-                this.errorMessage = 'Categoria não suportada.'
-            }
-
+            this.errorMessage = this.services
+                .servicesAbstract.trataErrorMessage(error.status)
+            
         })
 
     }

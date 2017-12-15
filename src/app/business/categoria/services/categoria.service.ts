@@ -9,11 +9,21 @@ export class CategoriaServices {
 
     uri: string = '/categoria';
 
-    constructor(private services: ServicesAbstract) { }
+    servicesAbstract: ServicesAbstract
+
+    constructor(servicesAbstract: ServicesAbstract) {
+        this.servicesAbstract = servicesAbstract
+     }
 
     salvaCategoria(categoria: Categoria): Observable<Response> {
 
-        return this.services.cadastra(categoria, this.uri);
+        return this.servicesAbstract.cadastra(categoria, this.uri);
+
+    }
+
+    seleciona(): Observable<Categoria[]> {
+
+        return this.servicesAbstract.seleciona<Categoria>(this.uri+'/lista');
 
     }
 

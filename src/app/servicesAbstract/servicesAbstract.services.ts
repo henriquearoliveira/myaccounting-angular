@@ -26,6 +26,28 @@ export class ServicesAbstract {
 
     }
 
+    trataSuccessMessage(statusCode: number): string {
+
+        if (statusCode == 201) {
+            return 'Objeto salvo com sucesso.'
+        } else if (statusCode == 200) {
+            return 'Objeto atualizado com sucesso.'
+        }
+
+    }
+
+    trataErrorMessage(statusCode: number): string {
+
+        if (statusCode == 400) {
+            return 'Objeto não encontrado.'
+        } else if (statusCode == 410) {
+            return 'Operação não permitida.'
+        } else {
+            return 'Erro de servidor, por favor tente novamente mais tarde.'
+        }
+
+    }
+
     cadastra(any, uri?: string, parametros?: URLSearchParams): Observable<Response> {
 
         if (!this.headers.get('Authorization'))
@@ -70,7 +92,7 @@ export class ServicesAbstract {
 
     }
 
-    seleciona<T>(uri: string, parametros: URLSearchParams): Observable<T[]> {
+    seleciona<T>(uri: string, parametros?: URLSearchParams): Observable<T[]> {
 
         if (!this.headers.get('Authorization'))
             this.headers.append('Authorization', 'Bearer ' + this.authenticationService.token);
