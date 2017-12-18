@@ -15,12 +15,14 @@ import { CategoriaServices } from '../../business/categoria/services/categoria.s
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { FiltroPorTitulo } from './categoria.pipes'
+
 
 @NgModule({
     imports: [CommonModule, CategoriaRoutingModule,
         PageHeaderModule, FormsModule, ReactiveFormsModule,
     NgbModule.forRoot()], // TEM QUE IMPORTAR ESSA POHA KKKKKKKKKKKKKKKKK PARA O FUNCIONAMENTO DO NGB DO BOOTSTRAP
-    declarations: [CategoriaComponent, CategoriaListaComponent],
+    declarations: [CategoriaComponent, CategoriaListaComponent, FiltroPorTitulo],
     providers: [ServicesAbstract, FormControlValidatin, CategoriaServices]
 })
 export class CategoriaModule{ }

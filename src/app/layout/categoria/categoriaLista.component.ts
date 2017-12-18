@@ -15,6 +15,7 @@ import { error } from "util";
 export class CategoriaListaComponent { 
 
     categorias: Categoria[]
+    errorMessage: string
 
     constructor(private categoriaServices: CategoriaServices) {
 
@@ -25,7 +26,8 @@ export class CategoriaListaComponent {
 
         }, error => {
 
-            console.log('ruim')
+            this.errorMessage = this.categoriaServices
+            .servicesAbstract.trataErrorMessage(error.status)
             console.log(error);
 
         });

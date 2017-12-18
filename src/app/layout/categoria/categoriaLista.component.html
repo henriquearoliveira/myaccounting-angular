@@ -1,6 +1,7 @@
 <div [@routerTransition]>
     <app-page-header [heading]="'Listagem'" [icon]="'fa-wrench'"></app-page-header>
 
+    <ngb-alert *ngIf="errorMessage" type="danger" (close)="errorMessage = null">{{ errorMessage }}</ngb-alert>
 
     <form role="form" >
         <div class="row">
@@ -18,7 +19,7 @@
             <div class="col">
 
                     <div class="form-group">
-                        <input class="form-control is" placeholder="Pesquisa:">
+                        <input #textoProcurado (keyup)="0" class="form-control is" placeholder="Pesquisa:">
                     </div>
 
             </div>
@@ -41,7 +42,8 @@
     <div class="card mb-3">
         <div class="card-header">Categorias</div>
         <div class="card-body table-responsive">
-            <table class="table table-hover table-striped">
+
+            <table class="table table-hover table-striped" *ngIf="categorias != null">
                 <thead>
                     <tr>
                         <th>Descrição</th>
@@ -51,7 +53,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let c of categorias">
+                    <tr *ngFor="let c of categorias | filtroPorTitulo: textoProcurado.value">
                         <td>{{c.descricao}}</td>
                         <td>{{c.tipoDeCategoria}}</td>
                         <td>{{c.observacao}}</td>
@@ -67,6 +69,10 @@
                     </tr>
                 </tbody>
             </table>
+
+            <div *ngIf="categorias == null">
+                <strong>Nenhuma informação a ser exibida</strong>
+            </div>
         </div>
     </div>
 

@@ -21,7 +21,7 @@ export class CategoriaServices {
 
     }
 
-    seleciona(): Observable<Categoria[]> {
+    seleciona(): Observable<Array<Categoria>> {
 
         return this.servicesAbstract.seleciona<Categoria>(this.uri+'/lista');
 

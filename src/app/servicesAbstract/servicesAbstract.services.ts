@@ -92,7 +92,7 @@ export class ServicesAbstract {
 
     }
 
-    seleciona<T>(uri: string, parametros?: URLSearchParams): Observable<T[]> {
+    seleciona<T>(uri: string, parametros?: URLSearchParams): Observable<Array<T>> {
 
         if (!this.headers.get('Authorization'))
             this.headers.append('Authorization', 'Bearer ' + this.authenticationService.token);
